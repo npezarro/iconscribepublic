@@ -185,8 +185,7 @@ const IconGenerator = ({ apiKey, onClearApiKey }: IconGeneratorProps) => {
         
         // Ensure API key is properly trimmed and formatted
         const cleanApiKey = apiKey.trim();
-        console.log("Using API key format:", cleanApiKey.substring(0, 7) + "..." + cleanApiKey.substring(cleanApiKey.length - 4));
-        
+
         // Updated model - using gpt-4o-mini
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
           method: "POST",

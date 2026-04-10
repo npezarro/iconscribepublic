@@ -8,14 +8,14 @@ import { Toaster } from "@/components/ui/toaster";
 const Index = () => {
   const [apiKey, setApiKey] = useState<string>("");
   
-  // Check if API key exists in localStorage on mount
+  // Check if API key exists in sessionStorage on mount
   useEffect(() => {
-    const savedApiKey = localStorage.getItem("openai-api-key");
+    const savedApiKey = sessionStorage.getItem("openai-api-key");
     if (savedApiKey) {
       setApiKey(savedApiKey);
     }
   }, []);
-  
+
   const handleApiKeySubmit = (key: string) => {
     // Make sure to trim any whitespace
     const trimmedKey = key.trim();
@@ -24,12 +24,12 @@ const Index = () => {
       return;
     }
     setApiKey(trimmedKey);
-    localStorage.setItem("openai-api-key", trimmedKey);
+    sessionStorage.setItem("openai-api-key", trimmedKey);
   };
 
   const handleClearApiKey = () => {
     setApiKey("");
-    localStorage.removeItem("openai-api-key");
+    sessionStorage.removeItem("openai-api-key");
   };
   
   return (

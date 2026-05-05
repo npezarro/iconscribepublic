@@ -226,7 +226,7 @@ const IconGenerator = ({ apiKey, onClearApiKey }: IconGeneratorProps) => {
         }
         
         const data = await response.json();
-        let content = data.choices[0].message.content;
+        const content = data.choices[0].message.content;
         
         try {
           // Parse content directly as JSON
